@@ -1,0 +1,27 @@
+-- Create a bookstore database
+
+CREATE TABLE ashleys_books (id INTEGER PRIMARY KEY, title TEXT, author TEXT, price INTEGER, rating INTEGER, quantity INTEGER);
+
+INSERT INTO ashleys_books VALUES (1, "Eleanor Oliphant Is Completely Fine", "Gail Honeyman", 13.99, 4.25, 30);
+INSERT INTO ashleys_books VALUES (2, "Little Fires Everywhere", "Celeste Ng", 17.00, 4.09, 19);
+INSERT INTO ashleys_books VALUES (3, "I Might Regret This: Essays, Drawings, Vulnerabilities, and Other Stuff", "Abbi Jacobson", 14.49, 3.81, 80);
+INSERT INTO ashleys_books VALUES (4, "Holy Envy", "Barbara Brown Taylor", 16.99, 4.4, 73);
+INSERT INTO ashleys_books VALUES (5,"Still Me", "Jojo Moyes", 16, 4.12, 49);
+INSERT INTO ashleys_books VALUES (6, "Life Together", "Deitrich Bonhoeffer", 15.99, 4.25, 29);
+INSERT INTO ashleys_books VALUES (7, "My Name is Not 'Those People' ", "Julie K. Dinsmore", 10.31, 4.03, 3);
+INSERT INTO ashleys_books VALUES (8, "Holy Things", "Gordon W. Lathrop", 9.17, 3.86, 50);
+INSERT INTO ashleys_books VALUES (9, "Searching for Sunday", "Rachel Held Evans", 17.99, 4.19, 2);
+INSERT INTO ashleys_books VALUES (10, "The Immortalists", "Chloe Benjamin", 16.69, 3.71, 43);
+INSERT INTO ashleys_books VALUES (11, "The Boy, the Mole, the Fox and the Horse", "Charlie Mackesy", 24.99, 4.57, 1);
+INSERT INTO ashleys_books VALUES (12, "The Silent Patient", "Alex Michaelides", 17.99, 4.17, 7);
+INSERT INTO ashleys_books VALUES (13, "The Next Place", "Warren Hanson", 35, 4.48, 1);
+INSERT INTO ashleys_books VALUES (14, "I Owe You One", "Sophie Kinsella", 12.69, 3.53, 99);
+INSERT INTO ashleys_books VALUES (15, "Cat + Gamer, Volume 1", "Wataru Nadatani", 16.99, 4.21, 1);
+
+-- Display the database ordered by price
+
+SELECT * FROM ashleys_books ORDER BY price;
+
+-- What is the total number of items in inventory?
+
+SELECT  SUM(quantity) FROM ashleys_books;
