@@ -1,0 +1,69 @@
+/* Create table about the people and what they do here */
+
+-- Create celebrities database
+
+CREATE TABLE famous_people
+    (id INTEGER PRIMARY KEY, name TEXT, age INTEGER, gender TEXT, born INTEGER, marital_status TEXT);
+    
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('John Krasinski', 43, 'M', 1979, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Emily Blunt', 39, 'F', 1983, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Zooey Deschanel', 42, 'F', 1980, 'S');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Jonathan Scott', 44, 'M', 1978, 'S');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Matthew Broderick', 60, 'M', 1962, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Sarah Jessica Parker', 57, 'F', 1965, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Blake Lively', 35, 'F', 1987, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Ryan Reynolds', 46, 'M', 1976, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Goldie Hawn', 77, 'F', 1945, 'S');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Kurt Russell', 71, 'M', 1951, 'S');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Melissa McCarthy', 52, 'F', 1970, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Ben Falcone', 49, 'M', 1973, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Dax Shepard', 48, 'M', 1975, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Kristen Bell', 42, 'F', 1980, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('Neil Patrick Harris', 49, 'M', 1973, 'M');
+INSERT INTO famous_people (name, age, gender, born, marital_status) VALUES ('David Burtka', 47, 'M', 1975, 'M');
+
+--Create database of celebrities break-out roles
+
+CREATE TABLE projects (id INTEGER PRIMARY KEY, person_id INTEGER, title TEXT);
+INSERT INTO projects (person_id, title) VALUES (1, 'The Office');
+INSERT INTO projects (person_id, title) VALUES (2, 'The Devil Wears Prada');
+INSERT INTO projects (person_id, title) VALUES (3, 'New Girl');
+INSERT INTO projects (person_id, title) VALUES (4, 'Property Brothers');
+INSERT INTO projects (person_id, title) VALUES (5, 'Ferries Buellers Day Off');
+INSERT INTO projects (person_id, title) VALUES (6, 'Sex and the City');
+INSERT INTO projects (person_id, title) VALUES (7, 'Gossip Girl');
+INSERT INTO projects (person_id, title) VALUES (8, 'Two Guys and a Girl');
+INSERT INTO projects (person_id, title) VALUES (9, 'Rowan & Martins Laugh-In');
+INSERT INTO projects (person_id, title) VALUES (10, 'Escape From New Yorks Snake Plissken');
+INSERT INTO projects (person_id, title) VALUES (11, 'Gilmore Girls');
+INSERT INTO projects (person_id, title) VALUES (12, 'Bridesmaids');
+INSERT INTO projects (person_id, title) VALUES (13, 'Punkd');
+INSERT INTO projects (person_id, title) VALUES (14, 'Veronica Mars');
+INSERT INTO projects (person_id, title) VALUES (15, 'Doogie Howser, M.D.');
+INSERT INTO projects (person_id, title) VALUES (16, 'How I Met Your Mother');
+
+--Create database of celebrity couples
+
+CREATE TABLE couples (id INTEGER PRIMARY KEY, person1_id INTEGER, person2_id INTEGER, together_since INTEGER);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (1, 2, 2008);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (3, 4, 2019);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (5, 6, 1991);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (7, 8, 2011);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (9, 10, 1983);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (11, 12, 1998);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (13, 14, 2007);
+INSERT INTO couples (person1_id, person2_id, together_since) VALUES (15, 16, 2004);
+
+--Which project are they involved with?
+
+SELECT name, title FROM famous_people
+JOIN projects
+ON famous_people.id=projects.person_id;
+
+--Are any indiviiduals married to each other?
+
+SELECT a.name, b.name FROM couples
+JOIN famous_people a
+ON couples.person1_id=a.id
+JOIN famous_people b
+ON couples.person2_id=b.id;
