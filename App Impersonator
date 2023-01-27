@@ -1,0 +1,22 @@
+/* What does the app's SQL look like? */
+
+--Create a table to store the data.
+
+CREATE TABLE nanny_notes (id INTEGER PRIMARY KEY, baby TEXT, time TEXT, content TEXT); 
+
+--Insert a few example rows in the table.
+
+INSERT INTO nanny_notes (baby, time, content) VALUES ( 'Hank', 'snack', 'pouch');
+INSERT INTO nanny_notes (baby, time, content) VALUES ('Sawyer', 'nap', '2:30-4:30');
+INSERT INTO nanny_notes (baby, time, content) VALUES ('Hank', 'breakfast','egg cup, berries');
+INSERT INTO nanny_notes (baby, time, content) VALUES ('Sawyer', 'water intake', '12oz');
+INSERT INTO nanny_notes (baby, time, content) VALUES ('Hank', 'lunch', 'Pb&j');
+INSERT INTO nanny_notes (baby, time, content) VALUES ('Sawyer', 'Milk before nap', 'done');
+
+--Use an UPDATE to emulate what happens when you edit data in the app.
+
+ALTER TABLE nanny_notes ADD emotion TEXT default 'unknown';
+
+--Use a DELETE to emulate what happens when you delete data in the app.
+
+DELETE FROM nanny_notes WHERE time= 'water intake';
