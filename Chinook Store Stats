@@ -1,0 +1,46 @@
+SELECT * FROM chinook.employees;
+
+--1
+
+SELECT CustomerId, FirstName, LastName, Country FROM chinook.customers
+WHERE Country != 'USA';
+
+--2
+
+SELECT CustomerId, FirstName, LastName, Country FROM chinook.customers
+WHERE Country= 'Brazil';
+
+--3
+
+SELECT CustomerId, FirstName, LastName, InvoiceId, InvoiceDate, BillingCountry FROM chinook.customers 
+LEFT JOIN chinook.invoices
+ON chinook.customers.customerId=chinook.invoices.CustomerId
+WHERE BillingCountry= 'Brazil';
+
+--4
+
+SELECT * FROM chinook.employees
+WHERE Title LIKE 'Sales%Agent';
+
+--
+
+SELECT DISTINCT BillingCountry FROM chinook.invoices;
+
+--6
+
+SELECT EmployeeId, LastName, FirstName, SupportRepId, InvoiceId, CustomerId FROM chinook.employees
+JOIN chinook.customers
+ON chinook.employees.EmployeeId=chinook.customers.SupportRepId
+JOIN chinook.invoices
+ON chinook.customers.CustomerId=chinook.invoices.CustomerId;
+
+--
+
+SELECT Total, FirstName, LastName, Country, SupportRedId, FirstName, LastName 
+FROM chinook.customers cust
+JOIN chinook.employees empl
+ON cust.SupportRepId=empl.employeeId
+JOIN chinook.invoice inv
+ON cust.customerId=inv.customerId;
+
+--8
